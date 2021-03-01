@@ -3,11 +3,17 @@ from __future__ import print_function
 import os
 
 class CommandDraw:
-    RED_PATTERN = '\033[31m%s\033[0m'
-    GREEN_PATTERN = '\033[32m%s\033[0m'
-    BLUE_PATTERN = '\033[34m%s\033[0m'
-    PEP_PATTERN = '\033[36m%s\033[0m'
-    BROWN_PATTERN = '\033[33m%s\033[0m'
+    RED_PATTERN = '\033[1;31m%s\033[0m'
+    BLUE_PATTERN = '\033[1;34m%s\033[0m'
+    GREEN_PATTERN = '\033[1;32m%s\033[0m'
+    PEP_PATTERN = '\033[1;36m%s\033[0m'
+    BROWN_PATTERN = '\033[1;33m%s\033[0m'
+# original color    
+#    RED_PATTERN = '\033[31m%s\033[0m'
+#    GREEN_PATTERN = '\033[32m%s\033[0m'
+#    BLUE_PATTERN = '\033[34m%s\033[0m'
+#    PEP_PATTERN = '\033[36m%s\033[0m'
+#    BROWN_PATTERN = '\033[33m%s\033[0m'
     
     @staticmethod
     def beautiy_print(text):
@@ -44,7 +50,7 @@ class CommandDraw:
             print(uncommit)
         # paraphrase
         for v in word['paraphrase']:
-            print(self.BLUE_PATTERN % v)
+            print(self.GREEN_PATTERN % v)
         # short desc
         if word['rank']:
             print(self.RED_PATTERN % word['rank'], end='  ')
@@ -99,7 +105,7 @@ class CommandDraw:
         if word['paraphrase']:
             for v in word['paraphrase']:
                 v = v.replace('  ;  ', ', ')
-                print(self.BLUE_PATTERN % v)
+                print(self.GREEN_PATTERN % v)
         # complex
         if not conf['short']:
             # description
